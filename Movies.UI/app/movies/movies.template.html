@@ -1,0 +1,32 @@
+﻿
+ <div class="col-xs-4" style="margin-bottom:30px">
+              <label for="search">items per page:</label>
+              <input type="number" min="1" max="100" class="form-control" ng-model="pageSize">
+            </div>
+
+
+<table class="table">
+    <tr>
+
+        <th>Title</th>
+        <th>Genre</th>
+        <th>Release Date</th>
+        
+    </tr>
+    <tr dir-paginate="movie in MoviesCtrl.movies | itemsPerPage: pageSize">
+
+        <td>
+            <p>{{ movie.title }}</p>
+
+        </td>
+        <td>
+            <p>{{ movie.genre }}</p>
+
+        </td>
+        <td>
+            <p>{{ movie.releasedate }}</p>
+        </td>
+
+    </tr>
+</table>
+<dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="app/common/directives/pagination/dirPagination.tpl.html"></dir-pagination-controls>

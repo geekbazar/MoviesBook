@@ -1,0 +1,29 @@
+Z:\SharedFolder\R & D\Movies Application\Movies.Domain\bin\Debug\Movies.Domain.dll.config
+Z:\SharedFolder\R & D\Movies Application\Movies.Domain\bin\Debug\Movies.Domain.dll
+Z:\SharedFolder\R & D\Movies Application\Movies.Domain\bin\Debug\Movies.Domain.pdb
+Z:\SharedFolder\R & D\Movies Application\Movies.Domain\bin\Debug\EntityFramework.dll
+Z:\SharedFolder\R & D\Movies Application\Movies.Domain\bin\Debug\EntityFramework.SqlServer.dll
+Z:\SharedFolder\R & D\Movies Application\Movies.Domain\bin\Debug\EntityFramework.xml
+Z:\SharedFolder\R & D\Movies Application\Movies.Domain\bin\Debug\EntityFramework.SqlServer.xml
+Z:\SharedFolder\R & D\Movies Application\Movies.Domain\obj\Debug\Movies.Domain.csprojResolveAssemblyReference.cache
+Z:\SharedFolder\R & D\Movies Application\Movies.Domain\obj\Debug\Movies.Domain.dll
+Z:\SharedFolder\R & D\Movies Application\Movies.Domain\obj\Debug\Movies.Domain.pdb
+C:\Users\vineesha.bodduluri\Desktop\MoviesApplication-master\MoviesApplication-master\Movies.Domain\bin\Debug\Movies.Domain.dll.config
+C:\Users\vineesha.bodduluri\Desktop\MoviesApplication-master\MoviesApplication-master\Movies.Domain\bin\Debug\Movies.Domain.dll
+C:\Users\vineesha.bodduluri\Desktop\MoviesApplication-master\MoviesApplication-master\Movies.Domain\bin\Debug\Movies.Domain.pdb
+C:\Users\vineesha.bodduluri\Desktop\MoviesApplication-master\MoviesApplication-master\Movies.Domain\bin\Debug\EntityFramework.dll
+C:\Users\vineesha.bodduluri\Desktop\MoviesApplication-master\MoviesApplication-master\Movies.Domain\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\vineesha.bodduluri\Desktop\MoviesApplication-master\MoviesApplication-master\Movies.Domain\bin\Debug\EntityFramework.xml
+C:\Users\vineesha.bodduluri\Desktop\MoviesApplication-master\MoviesApplication-master\Movies.Domain\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\vineesha.bodduluri\Desktop\MoviesApplication-master\MoviesApplication-master\Movies.Domain\obj\Debug\Movies.Domain.dll
+C:\Users\vineesha.bodduluri\Desktop\MoviesApplication-master\MoviesApplication-master\Movies.Domain\obj\Debug\Movies.Domain.pdb
+C:\Users\vineesha.bodduluri\Desktop\MoviesApplication-master\MoviesApplication-master\Movies.Domain\obj\Debug\Movies.Domain.csprojResolveAssemblyReference.cache
+C:\D\GitHub\MoviesApplication\Movies.Domain\bin\Debug\Movies.Domain.dll.config
+C:\D\GitHub\MoviesApplication\Movies.Domain\bin\Debug\Movies.Domain.dll
+C:\D\GitHub\MoviesApplication\Movies.Domain\bin\Debug\Movies.Domain.pdb
+C:\D\GitHub\MoviesApplication\Movies.Domain\bin\Debug\EntityFramework.dll
+C:\D\GitHub\MoviesApplication\Movies.Domain\bin\Debug\EntityFramework.SqlServer.dll
+C:\D\GitHub\MoviesApplication\Movies.Domain\bin\Debug\EntityFramework.xml
+C:\D\GitHub\MoviesApplication\Movies.Domain\bin\Debug\EntityFramework.SqlServer.xml
+C:\D\GitHub\MoviesApplication\Movies.Domain\obj\Debug\Movies.Domain.dll
+C:\D\GitHub\MoviesApplication\Movies.Domain\obj\Debug\Movies.Domain.pdb
