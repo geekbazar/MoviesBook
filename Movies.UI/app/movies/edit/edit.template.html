@@ -1,40 +1,29 @@
-﻿<h2>Movie-{{ViewCtrl.movie.title}}</h2>
+﻿<h2>Movie-{{EditCtrl.movie.title}}</h2>
 <br />
 
 <form class="form-horizontal">
     <div class="form-group">
         <label for="movieGenre" class="control-label col-xs-2">Genre</label>
         <div class="col-xs-10">
-            <p class="form-control-static">
-                {{ViewCtrl.movie.genre}}
-            </p>
+            <input type="text" ng-model="EditCtrl.movie.genre" class="form-control">
         </div>
     </div>
     <div class="form-group">
         <label for="movieReleaseDate" class="control-label col-xs-2">Release Date</label>
         <div class="col-xs-10">
-            <p class="form-control-static">
-                {{ViewCtrl.movie.releaseDate}}
-            </p>
+            <input ng-model="EditCtrl.movie.releaseDate" class="form-control">
         </div>
     </div>
     <div class="form-group">
         <label for="movieRating" class="control-label col-xs-2">Rating</label>
         <div class="col-xs-10">
-            <p class="form-control-static">
-                {{ViewCtrl.movie.rating}}
-            </p>
+            <input type="number" ng-model="EditCtrl.movie.rating" class="form-control">
         </div>
     </div>
     <div class="form-group">
         <div class="col-xs-10">
-            <button ng-click="ViewCtrl.editMovie()">Edit</button>
-            <button ng-click="ViewCtrl.goToMovies()">Cancel</button>
+            <button type="submit" ng-click="EditCtrl.updateMovie()">Save</button>
+            <button ng-click="EditCtrl.goToMovies()">Cancel</button>
         </div>
     </div>
 </form>
-
-
-
-
-

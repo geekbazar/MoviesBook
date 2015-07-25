@@ -1,7 +1,7 @@
 ﻿<h2>My movies</h2>
 <div class="form-group">
     <input class="form-inline col-lg-6" placeholder="search movie..." type="text" ng-model="MoviesCtrl.searchMovie"/>
-    <button class="btn-primary pull-right">Add a new movie</button>
+    <button class="btn-primary pull-right" ui-sref="add">Add a new movie</button>
 </div>
 <br /><br /><br />
 <table class="table table-hover">
@@ -36,7 +36,7 @@
                                                   | filter: MoviesCtrl.searchMovie 
                                                   | limitTo: MoviesCtrl.pageSize : MoviesCtrl.offset">
             <td>
-                <p><a href="" ng-click="MoviesCtrl.goToMovie(movie)">{{ movie.title }}</a></p>
+                <p><a ui-sref="view({id: movie.movieId })">{{ movie.title }}</a></p>
             </td>
             <td>
                 <p>{{ movie.genre }}</p>

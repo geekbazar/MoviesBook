@@ -14,7 +14,6 @@
         self.movies = [];
         self.pages = [];
         self.navigate = _navigate;
-        self.goToMovie = _goToMovie;
         _activate();
 
         function _activate()
@@ -23,7 +22,7 @@
             self.sortBy = 'title';
             self.reverse = true;
             self.offset = 0;
-            self.pageSize = 2;
+            self.pageSize = 5;
             self.activePage = 1;
             _getMovies();
         }
@@ -48,11 +47,6 @@
             self.activePage = page;
 
             self.offset = (self.activePage - 1) * self.pageSize;
-        }
-
-        function _goToMovie(movie)
-        {
-
         }
     }
 

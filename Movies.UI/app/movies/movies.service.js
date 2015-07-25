@@ -8,7 +8,10 @@
     function MoviesService($log, $q, $http) {
 
         var service = {
-            getMovies: getMovies
+            getMovies: getMovies,
+            getMovie: getMovie,
+            updateMovie: updateMovie,
+            addMovie: addMovie
         }
 
         function getMovies() {
@@ -27,6 +30,63 @@
                 }
                 );
          
+            return requestDefer.promise;
+        }
+
+        function getMovie(id)
+        {
+            var requestDefer = $q.defer();
+
+            $http.get('http://localhost:4747/api/movies/' + id)
+                 .then(
+                 //success callback
+                 function (response) {
+                     requestDefer.resolve(response.data);
+                 },
+                 //failure callback
+                 function (error) {
+                     requestDefer.reject("Movie with {0} not found", id);
+                 }
+                 );
+
+            return requestDefer.promise;
+        }
+
+        function updateMovie(movie)
+        {
+            var requestDefer = $q.defer();
+
+            $http.put('http://localhost:4747/api/movies/' + movie.movieId, movie)
+                 .then(
+                 //success callback
+                 function (response) {
+                     requestDefer.resolve(response.status);
+                 },
+                 //failure callback
+                 function (error) {
+                     requestDefer.reject("Movie with {0} is not updated", movie.movieId);
+                 }
+                 );
+
+            return requestDefer.promise;
+        }
+
+        function addMovie(movie)
+        {
+            var requestDefer = $q.defer();
+
+            $http.post('http://localhost:4747/api/movies/', movie)
+                 .then(
+                 //success callback
+                 function (response) {
+                     requestDefer.resolve(response.status);
+                 },
+                 //failure callback
+                 function (error) {
+                     requestDefer.reject("Movie is not added", error);
+                 }
+                 );
+
             return requestDefer.promise;
         }
         
