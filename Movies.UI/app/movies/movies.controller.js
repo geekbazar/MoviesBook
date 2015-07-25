@@ -14,6 +14,7 @@
         self.movies = [];
         self.pages = [];
         self.navigate = _navigate;
+        self.goToMovie = _goToMovie;
         _activate();
 
         function _activate()
@@ -47,6 +48,11 @@
             self.activePage = page;
 
             self.offset = (self.activePage - 1) * self.pageSize;
+        }
+
+        function _goToMovie(movie)
+        {
+
         }
     }
 

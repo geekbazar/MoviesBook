@@ -10,6 +10,11 @@
             url: '/',
             templateUrl: 'app/movies/movies.template.html',
             controller: 'MoviesController as MoviesCtrl'
+        })
+        .state('view', {
+            url: 'movie/{id}',
+            templateUrl: 'app/movies/view/view.template.html',
+            controller: 'ViewController as ViewCtrl'
         });
 
         paginationTemplateProvider.setPath('app/common/directives/pagination/dirPagination.tpl.html');

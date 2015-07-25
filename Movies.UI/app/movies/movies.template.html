@@ -1,9 +1,10 @@
 ﻿<h2>My movies</h2>
 <div class="form-group">
-    <input class="form-control" placeholder="search movie..." type="text" ng-model="MoviesCtrl.searchMovie"/>
+    <input class="form-inline col-lg-6" placeholder="search movie..." type="text" ng-model="MoviesCtrl.searchMovie"/>
+    <button class="btn-primary pull-right">Add a new movie</button>
 </div>
-<br/>
-<table class="table movies-table">
+<br /><br /><br />
+<table class="table table-hover">
     <thead>
         <tr>
             <th ng-click="MoviesCtrl.sortBy= 'title'; MoviesCtrl.reverse= !MoviesCtrl.reverse">
@@ -35,7 +36,7 @@
                                                   | filter: MoviesCtrl.searchMovie 
                                                   | limitTo: MoviesCtrl.pageSize : MoviesCtrl.offset">
             <td>
-                <p>{{ movie.title }}</p>
+                <p><a href="" ng-click="MoviesCtrl.goToMovie(movie)">{{ movie.title }}</a></p>
             </td>
             <td>
                 <p>{{ movie.genre }}</p>
