@@ -11,7 +11,7 @@
     <div class="form-group">
         <label for="movieReleaseDate" class="control-label col-xs-2">Release Date</label>
         <div class="col-xs-10">
-            <input ng-model="EditCtrl.movie.releaseDate" class="form-control">
+            <input ng-model="EditCtrl.movie.releaseDate" gb-datepicker class="form-control" />
         </div>
     </div>
     <div class="form-group">
@@ -21,9 +21,9 @@
         </div>
     </div>
     <div class="form-group">
-        <div class="col-xs-10">
-            <button type="submit" ng-click="EditCtrl.updateMovie()">Save</button>
-            <button ng-click="EditCtrl.goToMovies()">Cancel</button>
+        <div class="col-sm-offset-2 col-sm-10">
+            <button class="btn btn-primary" ng-click="EditCtrl.updateMovie()">Save</button>
+            <button class="btn btn-danger" ng-click="EditCtrl.goToMovies()">Cancel</button>
         </div>
     </div>
 </form>

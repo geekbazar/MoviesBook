@@ -14,7 +14,7 @@
         <label for="movieReleaseDate" class="control-label col-xs-2">Release Date</label>
         <div class="col-xs-10">
             <p class="form-control-static">
-                {{ViewCtrl.movie.releaseDate}}
+                {{ViewCtrl.movie.releaseDate | date}}
             </p>
         </div>
     </div>
@@ -27,9 +27,9 @@
         </div>
     </div>
     <div class="form-group">
-        <div class="col-xs-10">
-            <button ng-click="ViewCtrl.editMovie()">Edit</button>
-            <button ng-click="ViewCtrl.goToMovies()">Cancel</button>
+        <div class="col-sm-offset-2 col-sm-10">
+            <button class="btn btn-primary" ng-click="ViewCtrl.editMovie()">Edit</button>
+            <button class="btn btn-danger" ng-click="ViewCtrl.goToMovies()">Cancel</button>
         </div>
     </div>
 </form>
