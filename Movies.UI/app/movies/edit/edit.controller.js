@@ -3,9 +3,9 @@
 
     angular.module('app').controller('EditController', EditController);
 
-    EditController.$inject = ['$log', 'MoviesService', '$stateParams', '$state'];
+    EditController.$inject = ['$log', 'MoviesService', '$stateParams', '$state', '$filter'];
 
-    function EditController($log, MoviesService, $stateParams, $state)
+    function EditController($log, MoviesService, $stateParams, $state, $filter)
     {
         var self = this;
         self.movie = null;
@@ -24,6 +24,7 @@
                         .then(
                         //success callback
                         function (movie) {
+                            movie.releaseDate = $filter('date')(movie.releaseDate, "MM/dd/yyyy");
                             self.movie = movie;
                         },
                         //failure callback

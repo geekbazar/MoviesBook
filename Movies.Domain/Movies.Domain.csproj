@@ -47,9 +47,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\Movie.cs" />
+    <Compile Include="Repository\IMovie.cs" />
     <Compile Include="Repository\Mapping\MovieMap.cs" />
     <Compile Include="Repository\MoviesContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\MoviesRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

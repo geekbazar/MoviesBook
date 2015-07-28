@@ -13,54 +13,36 @@ namespace Movies.Api.Controllers
 {
     public class MoviesController : ApiController
     {
+        private readonly IMovie _movie;
+
+        public MoviesController(IMovie movie)
+        {
+            this._movie = movie;
+        }
+
         [HttpGet]
         [Route("api/movies")]
         public ICollection<Movie> GetAllMovies()
         {
-            IQueryable<Movie> movies;
-            using (var db = new MoviesContext())
-            {
-                movies = db.Movies;
-                if (movies.Any() == false)
-                {
-                    return null;
-                }
-                else
-                {
-                    return movies.ToList();
-                }
-            }
+            return this._movie.GetAllMovies();
         }
 
         [HttpGet]
         [Route("api/movies/{movieId}")]
         public Movie GetMovie(int movieId)
         {
-            if (movieId != null)
-            {
-                using (var db = new MoviesContext())
-                {
-                    return db.Movies.Where(x => x.MovieId == movieId).FirstOrDefault();
-                }
-            }
-            else
-            {
-                return null;
-            }
+            return this._movie.GetMovie(movieId);
         }
 
         [HttpPost]
         [Route("api/movies")]
         public HttpResponseMessage AddMovie([FromBody]Movie movie)
         {
-            if (movie != null)
+            var isMovieAdded = this._movie.AddMovie(movie);
+
+            if (isMovieAdded)
             {
-                using (var db = new MoviesContext())
-                {
-                    db.Movies.Add(movie);
-                    db.SaveChanges();
-                    return new HttpResponseMessage { StatusCode = HttpStatusCode.OK };
-                }
+                return new HttpResponseMessage { StatusCode = HttpStatusCode.OK };
             }
             else
                 return new HttpResponseMessage { StatusCode = HttpStatusCode.NotFound };
@@ -70,46 +52,27 @@ namespace Movies.Api.Controllers
         [Route("api/movies/{movieId}")]
         public HttpResponseMessage UpdateMovie(int movieId, [FromBody]Movie movie)
         {
-            if (movie == null)
+            var isMovieUpdated = this._movie.UpdateMovie(movieId, movie);
+            if (isMovieUpdated)
             {
-                throw new ArgumentNullException("movie");
+                return new HttpResponseMessage { StatusCode = HttpStatusCode.OK };
             }
-
-            using (var db = new MoviesContext())
-            {
-                var movieToUpdate = db.Movies.Where(x => x.MovieId == movie.MovieId).FirstOrDefault();
-                if (movieToUpdate != null)
-                {
-                    movieToUpdate.Title = movie.Title;//perform validations.
-                    movieToUpdate.Genre = movie.Genre;
-                    movieToUpdate.ReleaseDate = movie.ReleaseDate;
-                    movieToUpdate.Rating = movie.Rating;
-                    db.Entry(movieToUpdate).State = EntityState.Modified;
-                    db.SaveChanges();
-                    return new HttpResponseMessage { StatusCode = HttpStatusCode.OK };
-                }
-                else
-                    return new HttpResponseMessage { StatusCode = HttpStatusCode.NotFound };
-            }
+            else
+                return new HttpResponseMessage { StatusCode = HttpStatusCode.NotFound };
         }
+
 
         [HttpDelete]
         [Route("api/movies/{movieId}")]
         public HttpResponseMessage DeleteMovie(int movieId)
         {
-            using (var db = new MoviesContext())
+            var isMovieDeleted = this._movie.DeleteMovie(movieId);
+            if (isMovieDeleted)
             {
-                var movie = db.Movies.Where(x => x.MovieId == movieId).FirstOrDefault();
-                if (movie != null)
-                {
-                    db.Movies.Remove(movie);
-                    db.SaveChanges();
-                    return new HttpResponseMessage { StatusCode = HttpStatusCode.OK };
-                }
-                else
-                    return new HttpResponseMessage { StatusCode = HttpStatusCode.NotFound };
+                return new HttpResponseMessage { StatusCode = HttpStatusCode.OK };
             }
-
+            else
+                return new HttpResponseMessage { StatusCode = HttpStatusCode.NotFound };
         }
     }
 }
