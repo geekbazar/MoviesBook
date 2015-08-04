@@ -1,81 +1,90 @@
-﻿<h2>My movies</h2>
-<div class="form-group">
-    <input class="form-inline col-lg-6" placeholder="search movie..." type="text" ng-model="MoviesCtrl.searchMovie"/>
-    <button class="btn-primary pull-right" ui-sref="add">Add a new movie</button>
-</div>
-<br /><br /><br />
-<table class="table table-hover">
-    <thead>
-        <tr>
-            <th ng-click="MoviesCtrl.sortBy= 'title'; MoviesCtrl.reverse= !MoviesCtrl.reverse">
-                <span class="movies-title">
-                    Title
-                </span>
-                <i class="fa fa-sort-desc" ng-show="MoviesCtrl.reverse && MoviesCtrl.sortBy=='title'"></i>
-                <i class="fa fa-sort-asc" ng-show="!MoviesCtrl.reverse && MoviesCtrl.sortBy=='title'"></i>
-            </th>
-            <th ng-click="MoviesCtrl.sortBy= 'genre'; MoviesCtrl.reverse= !MoviesCtrl.reverse">
-                <span class="movies-title">Genre</span>
-                <i class="fa fa-sort-desc" ng-show="MoviesCtrl.reverse && MoviesCtrl.sortBy=='genre'"></i>
-                <i class="fa fa-sort-asc" ng-show="!MoviesCtrl.reverse && MoviesCtrl.sortBy=='genre'"></i>
-            </th>
-            <th ng-click="MoviesCtrl.sortBy= 'releaseDate'; MoviesCtrl.reverse= !MoviesCtrl.reverse">
-                <span class="movies-title">Release Date</span>
-                <i class="fa fa-sort-desc" ng-show="MoviesCtrl.reverse && MoviesCtrl.sortBy=='releaseDate'"></i>
-                <i class="fa fa-sort-asc" ng-show="!MoviesCtrl.reverse && MoviesCtrl.sortBy=='releaseDate'"></i>
-            </th>
-            <th ng-click="MoviesCtrl.sortBy= 'rating'; MoviesCtrl.reverse= !MoviesCtrl.reverse">
-                <span class="movies-title">Rating</span>
-                <i class="fa fa-sort-desc" ng-show="MoviesCtrl.reverse && MoviesCtrl.sortBy=='rating'"></i>
-                <i class="fa fa-sort-asc" ng-show="!MoviesCtrl.reverse && MoviesCtrl.sortBy=='rating'"></i>
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr ng-repeat="movie in MoviesCtrl.movies | orderBy: MoviesCtrl.sortBy : MoviesCtrl.reverse 
-                                                  | filter: MoviesCtrl.searchMovie 
+﻿<div class="container-fluid">
+    <h2>Movies</h2>
+    <br /><br />
+    <div class="row">
+        <div class="col-md-8">
+            <input class="form-control col-lg-6" placeholder="search movie..." type="text" ng-model="MoviesCtrl.searchMovie" />
+        </div>
+    </div>
+    <br /><br />
+    <div class="row">
+        <div class="col-lg-12">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th ng-click="MoviesCtrl.sortBy= 'title'; MoviesCtrl.reverse= !MoviesCtrl.reverse">
+                            <span class="movies-title">
+                                Title
+                            </span>
+                            <i class="fa fa-sort-desc" ng-show="MoviesCtrl.reverse && MoviesCtrl.sortBy=='title'"></i>
+                            <i class="fa fa-sort-asc" ng-show="!MoviesCtrl.reverse && MoviesCtrl.sortBy=='title'"></i>
+                        </th>
+                        <th ng-click="MoviesCtrl.sortBy= 'genre'; MoviesCtrl.reverse= !MoviesCtrl.reverse">
+                            <span class="movies-title">Genre</span>
+                            <i class="fa fa-sort-desc" ng-show="MoviesCtrl.reverse && MoviesCtrl.sortBy=='genre'"></i>
+                            <i class="fa fa-sort-asc" ng-show="!MoviesCtrl.reverse && MoviesCtrl.sortBy=='genre'"></i>
+                        </th>
+                        <th ng-click="MoviesCtrl.sortBy= 'releaseDate'; MoviesCtrl.reverse= !MoviesCtrl.reverse">
+                            <span class="movies-title">Release Date</span>
+                            <i class="fa fa-sort-desc" ng-show="MoviesCtrl.reverse && MoviesCtrl.sortBy=='releaseDate'"></i>
+                            <i class="fa fa-sort-asc" ng-show="!MoviesCtrl.reverse && MoviesCtrl.sortBy=='releaseDate'"></i>
+                        </th>
+                        <th ng-click="MoviesCtrl.sortBy= 'rating'; MoviesCtrl.reverse= !MoviesCtrl.reverse">
+                            <span class="movies-title">Rating</span>
+                            <i class="fa fa-sort-desc" ng-show="MoviesCtrl.reverse && MoviesCtrl.sortBy=='rating'"></i>
+                            <i class="fa fa-sort-asc" ng-show="!MoviesCtrl.reverse && MoviesCtrl.sortBy=='rating'"></i>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="movie in MoviesCtrl.movies | orderBy: MoviesCtrl.sortBy : MoviesCtrl.reverse
+                                                  | filter: MoviesCtrl.searchMovie
                                                   | limitTo: MoviesCtrl.pageSize : MoviesCtrl.offset">
-            <td>
-                <p><a ui-sref="view({id: movie.movieId })">{{ movie.title }}</a></p>
-            </td>
-            <td>
-                <p>{{ movie.genre }}</p>
-            </td>
-            <td>
-                <p>{{ movie.releaseDate | date }}</p>
-            </td>
-            <td>
-                <p>{{movie.rating}}</p>
-            </td>
-        </tr>
-    </tbody>
-</table>
-<nav ng-show="MoviesCtrl.movies.length > MoviesCtrl.pageSize">
-    <ul class="pagination pull-right">
-        <li ng-class="{disabled: MoviesCtrl.activePage == 1}">
-            <a aria-label="First" ng-click="MoviesCtrl.navigate(1)">
-                <span aria-hidden="true">«</span>
-            </a>
-        </li>
-        <li ng-class="{disabled: MoviesCtrl.activePage == 1}">
-            <a aria-label="Previous" ng-click="MoviesCtrl.navigate(MoviesCtrl.activePage-1)">
-                <span aria-hidden="true">&lsaquo;</span>
-            </a>
-        </li>
-        <li ng-class="{active: page == MoviesCtrl.activePage}" ng-repeat="page in MoviesCtrl.pages">
-            <a ng-click="MoviesCtrl.navigate(page)">
-                <span aria-hidden="true">{{page}}</span>
-            </a>
-        </li>
-        <li ng-class="{disabled: MoviesCtrl.activePage == MoviesCtrl.pages.length}">
-            <a aria-label="Next" ng-click="MoviesCtrl.navigate(MoviesCtrl.activePage+1)">
-                <span aria-hidden=" true">&rsaquo;</span>
-            </a>
-        </li>
-        <li ng-class="{disabled: MoviesCtrl.activePage == MoviesCtrl.pages.length}">
-            <a aria-label="Last" ng-click="MoviesCtrl.navigate(MoviesCtrl.pages.length)">
-                <span aria-hidden=" true">»</span>
-            </a>
-        </li>
-    </ul>
-</nav>
+                        <td>
+                            <p><a ui-sref="view({id: movie.movieId })">{{ movie.title }}</a></p>
+                        </td>
+                        <td>
+                            <p>{{ movie.genre }}</p>
+                        </td>
+                        <td>
+                            <p>{{ movie.releaseDate | date }}</p>
+                        </td>
+                        <td>
+                            <p>{{movie.rating}}</p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <nav ng-show="MoviesCtrl.movies.length > MoviesCtrl.pageSize">
+                <ul class="pagination pull-right">
+                    <li ng-class="{disabled: MoviesCtrl.activePage == 1}">
+                        <a aria-label="First" ng-click="MoviesCtrl.navigate(1)">
+                            <span aria-hidden="true">«</span>
+                        </a>
+                    </li>
+                    <li ng-class="{disabled: MoviesCtrl.activePage == 1}">
+                        <a aria-label="Previous" ng-click="MoviesCtrl.navigate(MoviesCtrl.activePage-1)">
+                            <span aria-hidden="true">&lsaquo;</span>
+                        </a>
+                    </li>
+                    <li ng-class="{active: page == MoviesCtrl.activePage}" ng-repeat="page in MoviesCtrl.pages">
+                        <a ng-click="MoviesCtrl.navigate(page)">
+                            <span aria-hidden="true">{{page}}</span>
+                        </a>
+                    </li>
+                    <li ng-class="{disabled: MoviesCtrl.activePage == MoviesCtrl.pages.length}">
+                        <a aria-label="Next" ng-click="MoviesCtrl.navigate(MoviesCtrl.activePage+1)">
+                            <span aria-hidden=" true">&rsaquo;</span>
+                        </a>
+                    </li>
+                    <li ng-class="{disabled: MoviesCtrl.activePage == MoviesCtrl.pages.length}">
+                        <a aria-label="Last" ng-click="MoviesCtrl.navigate(MoviesCtrl.pages.length)">
+                            <span aria-hidden=" true">»</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <button class="btn btn-default" ui-sref="add">Add a new movie</button>
+</div>

@@ -13,7 +13,8 @@ namespace Movies.Api
     {
         public void Configuration(IAppBuilder app)
         {
-            app.UseNinjectMiddleware(NinjectConfig.CreateKernel).UseNinjectWebApi(WebApiConfig.Register());
+            app.UseNinjectMiddleware(NinjectConfig.CreateKernel)
+               .UseNinjectWebApi(WebApiConfig.Register());
         }
     }
 }
